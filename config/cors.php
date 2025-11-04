@@ -19,7 +19,10 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'],
+    'allowed_origins' => array_map(
+        fn($domain) => str_starts_with($domain, 'http') ? $domain : "http://{$domain}",
+        explode(',', env('ALLOWED_DOMAINS', 'localhost:3000,localhost:5173,127.0.0.1:3000,127.0.0.1:5173'))
+    ),
 
     'allowed_origins_patterns' => [],
 
@@ -29,6 +32,6 @@ return [
 
     'max_age' => 0,
 
-    'supports_credentials' => false,
+    'supports_credentials' => true,
 
 ];
