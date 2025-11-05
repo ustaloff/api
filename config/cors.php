@@ -11,11 +11,16 @@ return [
     | or "CORS". This determines what cross-origin operations may execute
     | in web browsers. You are free to adjust these settings as needed.
     |
+    | Configuration optimized for Bearer token authentication:
+    | - supports_credentials = false (Bearer tokens don't need credentials)
+    | - allowed_headers includes Authorization for Bearer tokens
+    | - Dynamic origins from ALLOWED_DOMAINS environment variable
+    |
     | To learn more: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie'],
+    'paths' => ['api/*'],
 
     'allowed_methods' => ['*'],
 
@@ -32,6 +37,6 @@ return [
 
     'max_age' => 0,
 
-    'supports_credentials' => true,
+    'supports_credentials' => false,
 
 ];

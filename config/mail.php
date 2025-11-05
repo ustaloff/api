@@ -1,15 +1,25 @@
 <?php
 
+/*
+|--------------------------------------------------------------------------
+| Mail Configuration - Optimized for API Operation
+|--------------------------------------------------------------------------
+|
+| This configuration is optimized for API operation. Mail functionality
+| is typically needed for API notifications, password resets, user
+| verification, and other user management features.
+|
+*/
+
 return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Mailer
+    | Default Mailer - For API Notifications
     |--------------------------------------------------------------------------
     |
-    | This option controls the default mailer that is used to send any email
-    | messages sent by your application. Alternative mailers may be setup
-    | and used as needed; however, this mailer will be used by default.
+    | This mailer is used for API-related emails such as password resets,
+    | user verification, notifications, and other user management features.
     |
     */
 
@@ -114,21 +124,17 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Markdown Mail Settings
+    | Markdown Mail Settings - Minimal for API
     |--------------------------------------------------------------------------
     |
-    | If you are using Markdown based email rendering, you may configure your
-    | theme and component paths here, allowing you to customize the design
-    | of the emails. Or, you may simply stick with the Laravel defaults!
+    | For API applications, markdown emails are typically simple and don't
+    | require custom themes. Using default theme with minimal configuration.
     |
     */
 
     'markdown' => [
         'theme' => 'default',
-
-        'paths' => [
-            resource_path('views/vendor/mail'),
-        ],
+        'paths' => [],
     ],
 
 ];

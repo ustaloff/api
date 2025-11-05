@@ -9,9 +9,13 @@ class Authenticate extends Middleware
 {
     /**
      * Get the path the user should be redirected to when they are not authenticated.
+     * 
+     * For API-only application, always return null to prevent redirects.
+     * All requests should expect JSON responses.
      */
     protected function redirectTo(Request $request): ?string
     {
-        return $request->expectsJson() ? null : route('login');
+        // API-only application - never redirect, always return JSON error
+        return null;
     }
 }

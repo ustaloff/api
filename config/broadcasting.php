@@ -1,17 +1,25 @@
 <?php
 
+/*
+|--------------------------------------------------------------------------
+| Broadcasting Configuration - Minimized for API-Only Operation
+|--------------------------------------------------------------------------
+|
+| This configuration is minimized for API-only operation. Broadcasting
+| is typically not needed for simple APIs unless real-time features
+| are specifically required. Default is set to 'null' to disable.
+|
+*/
+
 return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Broadcaster
+    | Default Broadcaster - Disabled for API-Only
     |--------------------------------------------------------------------------
     |
-    | This option controls the default broadcaster that will be used by the
-    | framework when an event needs to be broadcast. You may set this to
-    | any of the connections defined in the "connections" array below.
-    |
-    | Supported: "pusher", "ably", "redis", "log", "null"
+    | Set to 'null' by default for API-only applications. Can be changed
+    | to 'redis', 'pusher', or other drivers if real-time features are needed.
     |
     */
 
@@ -19,17 +27,31 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Broadcast Connections
+    | Broadcast Connections - Minimal Configuration
     |--------------------------------------------------------------------------
     |
-    | Here you may define all of the broadcast connections that will be used
-    | to broadcast events to other systems or over websockets. Samples of
-    | each available type of connection are provided inside this array.
+    | Keeping minimal connections for potential future use. Most API-only
+    | applications won't need broadcasting unless implementing real-time features.
     |
     */
 
     'connections' => [
 
+        'null' => [
+            'driver' => 'null',
+        ],
+
+        'log' => [
+            'driver' => 'log',
+        ],
+
+        'redis' => [
+            'driver' => 'redis',
+            'connection' => 'default',
+        ],
+
+        // Uncomment and configure if real-time broadcasting is needed
+        /*
         'pusher' => [
             'driver' => 'pusher',
             'key' => env('PUSHER_APP_KEY'),
@@ -43,28 +65,8 @@ return [
                 'encrypted' => true,
                 'useTLS' => env('PUSHER_SCHEME', 'https') === 'https',
             ],
-            'client_options' => [
-                // Guzzle client options: https://docs.guzzlephp.org/en/stable/request-options.html
-            ],
         ],
-
-        'ably' => [
-            'driver' => 'ably',
-            'key' => env('ABLY_KEY'),
-        ],
-
-        'redis' => [
-            'driver' => 'redis',
-            'connection' => 'default',
-        ],
-
-        'log' => [
-            'driver' => 'log',
-        ],
-
-        'null' => [
-            'driver' => 'null',
-        ],
+        */
 
     ],
 
