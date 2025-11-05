@@ -1,4 +1,4 @@
-# CodeCraftPro API
+# CodeCraft API
 
 Modern Laravel 10 REST API built with enterprise-grade architecture and best practices for professional development platforms.
 
@@ -27,7 +27,7 @@ php artisan key:generate
 # DB_CONNECTION=mysql
 # DB_HOST=127.0.0.1
 # DB_PORT=3306
-# DB_DATABASE=codecraftpro
+# DB_DATABASE=CodeCraft
 # DB_USERNAME=your_username
 # DB_PASSWORD=your_password
 
